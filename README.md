@@ -21,4 +21,6 @@ Later, you will also be able to flag an assignment as "help me" or "ask me if yo
 so other classmates know who they can help or ask for help.
  ### About the name
  
- Imperichat is the combination of the words 
+ Imperichat is the combination of the words Imperium and chat. In Latin, Imperium means power. Imperichat aims to empower you through chatting so that you can have a smoother 2020.
+ 
+ Imperichat. Empowering you, for a smoother 2020.
