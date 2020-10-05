@@ -2,7 +2,7 @@
 
 https://imperichat.web.app
 
-Chances are you have lots of friends,
+Chances are you have a number of friends,
  but maybe they're not in every single one  of your classes.
  
 For example, I don't know anyone in my English class. If I have a question about an assignment, I don't know who I would ask.

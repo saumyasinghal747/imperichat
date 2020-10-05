@@ -9,7 +9,7 @@
                     <img  src="https://cdn11.bigcommerce.com/s-sq9zkarfah/images/stencil/1280x1280/products/94144/189479/Snoopy-Happy-Decal-Sticker__67019.1511154642.jpg?c=2" alt="SO"/>
                 </md-avatar>
                 <div class="md-list-item-text">
-                   <p><span >Someone</span>  <span>Yesterday 5:32 PM</span></p>
+                   <p><span >Someone</span>  <span style="margin-left: 1em">Yesterday at 5:32 PM</span></p>
 
                     <p style="margin-top: 0.5em" >{{n % 2 === 0 ? "Hello, Someone!":"Hi!!"}}</p>
                 </div>
