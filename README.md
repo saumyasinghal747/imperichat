@@ -1,19 +1,22 @@
-# imperichat
+# Imperichat
 
-## Project setup
-```
-npm install
-```
+https://imperichat.web.app
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Chances are you have lots of friends,
+ but maybe they're not in every single one  of your classes.
+ 
+For example, I don't know anyone in my English class. If I have a question about an assignment, I don't know who I would ask.
+I'm sure you can think of at least one class you have like this.
+ 
+ The purpose of this 
+app is to connect you with people who are in your classes by creating a group chat for every class. 
 
-### Compiles and minifies for production
-```
-npm run build
-```
+You'll also be able to
+speak with references to  any assignments in that class. 
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+ Most importantly, you'll get to
+ know your classmates. 
+ 
+ ### About the name
+ 
+ Imperichat is the combination of the words 
