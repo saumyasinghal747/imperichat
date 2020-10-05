@@ -1,32 +1,83 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div class="page-container">
+    <md-app :md-theme="$store.state.darkMode? 'default-dark':'default-light'"  md-mode="fixed-last">
+      <md-app-drawer v-if="$store.state.courses.length>0" md-permanent="full">
+        <md-toolbar class="md-transparent" md-elevation="0">
+          <h1 >Courses</h1>
+        </md-toolbar>
+
+        <md-list class="md-double-line">
+          <div v-for="course in $store.state.courses" >
+            <md-list-item :to="'/courses/'+course.sectionId" :key="course.sectionId"  >
+              <md-avatar>
+                <img :src="course.photoURL">
+              </md-avatar>
+
+              <div class="md-list-item-text">
+                <span style="font-weight: bold">{{course.name}}</span>
+                <span>{{course.section}}</span>
+
+              </div>
+              <!--<md-badge v-if="course.sectionId==='2772301852'" class="md-primary " md-content="2" />-->
+
+            </md-list-item>
+          </div>
+
+        </md-list>
+      </md-app-drawer>
+
+      <md-app-content  style="padding:0;margin:0;border:none">
+       <router-view/>
+      </md-app-content>
+    </md-app>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<style  scoped>
+  /*#556c1433*/
+  .md-app {
+    height: 100vh;
+
+  }
+.router-link-active{
+  background-color: #556c1433;
 }
 
-#nav {
-  padding: 30px;
-}
+  .router-link-active:hover{
+    background-color: #556c1433 !important;
+  }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  .md-drawer {
+    width: 230px;
+    max-width: calc(100vw - 125px);
+  }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+
+
 </style>
+<style lang="scss">
+  @import "~vue-material/dist/theme/engine";
+  $primary: md-get-palette-color(lightgreen, 800);
+  $accent: md-get-palette-color(deeporange,300); //#de7758;
+  @include md-register-theme("default-dark", (
+          primary: $primary, // The primary color of your application
+          accent: $accent, // The accent or secondary color
+          theme: dark
+  ));
+
+  @include md-register-theme("default-light", (
+          primary: $primary, // The primary color of your application
+          accent: $accent, // The accent or secondary color
+          theme: light
+  ));
+
+  @import "~vue-material/dist/theme/all"; // Apply the theme
+</style>
+<script>
+  import Home from "./views/courseView";
+  export default {
+    name: 'App',
+    components: {Home},
+
+  }
+</script>

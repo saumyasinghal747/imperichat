@@ -1,0 +1,69 @@
+<template>
+    <div class="md-toolbar-section-end">
+    <md-menu v-if="!$store.state.user" :md-close-on-select="true" md-size="medium" :md-offset-x="0" :md-offset-y="8">
+        <md-button  md-menu-trigger>
+            sign in <md-icon>arrow_drop_down</md-icon>
+        </md-button>
+
+        <md-menu-content>
+            <md-menu-item @click="signInAsStudent">As Student</md-menu-item>
+            <md-menu-item @click="signInAsTeacher">As Teacher</md-menu-item>
+        </md-menu-content>
+    </md-menu>
+    <md-menu v-if="$store.state.user" :md-close-on-select="true" md-size="medium" :md-offset-x="0" :md-offset-y="8">
+        <md-button  md-menu-trigger>
+            {{$store.state.user.displayName}} <md-icon>arrow_drop_down</md-icon>
+        </md-button>
+
+        <md-menu-content>
+            <md-menu-item @click="()=>{}">Profile</md-menu-item>
+            <md-menu-item @click="()=>{}">Settings</md-menu-item>
+            <md-menu-item @click="signOut">Sign Out</md-menu-item>
+        </md-menu-content>
+    </md-menu>
+        <md-button @click="toggleTheme" class="md-icon-button">
+            <md-icon >brightness_medium</md-icon>
+        </md-button>
+    </div>
+</template>
+
+<script>
+    import {auth, studentProvider, teacherProvider, database} from "../firebase";
+
+
+    export default {
+        name: "topRightMenu",
+        data(){
+            return {
+                darkMode:false
+            }
+        },
+        methods:{
+            signInAsStudent(){
+                //first we should check with the server whether this user exists or not
+                auth.signInWithRedirect(studentProvider).then(async function () {
+                    //const email = auth.currentUser.email;
+                    //check if the user has multiple providers? if google is their only provider then delete the account
+
+
+                })
+            },
+            signInAsTeacher(){
+                auth.signInWithRedirect(teacherProvider)
+            },
+            signOut(){
+                auth.signOut().then(function () {
+                    this.$router.push("/");
+                    this.$store.commit('setCourses',[])
+                })
+            },
+            toggleTheme(){
+                this.$store.dispatch('toggleTheme')
+            }
+        }
+    }
+</script>
+
+<style scoped>
+
+</style>
