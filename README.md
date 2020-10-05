@@ -17,6 +17,8 @@ speak with references to  any assignments in that class.
  Most importantly, you'll get to
  know your classmates. 
  
+Later, you can also flag an assignment as "help me" or "ask me if you need help"
+so other classmates know who they can help or ask for help.
  ### About the name
  
  Imperichat is the combination of the words 
