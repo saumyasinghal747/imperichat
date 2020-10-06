@@ -13,7 +13,7 @@ import {
   MdList,
   MdIcon,
   MdDrawer,
-  MdToolbar, MdAvatar, MdMenu, MdBadge
+  MdToolbar, MdAvatar, MdMenu, MdBadge, MdField
 } from 'vue-material/dist/components'
 import 'vue-material/dist/vue-material.min.css'
 import VueChatScroll from 'vue-chat-scroll'
@@ -29,8 +29,8 @@ Vue.use(MdIcon)
 Vue.use(MdDrawer);
 Vue.use(MdMenu);
 Vue.use(MdBadge);
-
-
+Vue.use(MdField);
+Vue.use(require('vue-moment'));
 Vue.config.productionTip = false
 let app;
 

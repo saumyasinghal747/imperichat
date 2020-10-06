@@ -8,7 +8,36 @@ export default new Vuex.Store({
     user:null, //firebase user object. now can do "v-if user"
     darkMode:false,
 courses:[],
-    messages:20
+    messages:[
+      {
+        senderId:"uid1",
+        senderName: "Homework Central",
+        senderPhoto:"https://homeworkcentral.web.app/favicon.png",
+        message:"Wow! That chat begins!",
+        time: new Date(2020,9,5,20,33,15)
+      },
+      {
+        senderId:"uid2",
+        senderName:"YMath",
+        senderPhoto:"https://ymath.io/favicon.png",
+        message:"Yeah!!",
+        time: new Date(2020,9,5,20,35,11)
+      },
+      {
+        senderId:"uid1",
+        senderName: "Homework Central",
+        senderPhoto:"https://homeworkcentral.web.app/favicon.png",
+        message:"Isn't this amazing?",
+        time: new Date(2020,9,5,20,36,2)
+      },
+      {
+        senderId:"uid3",
+        senderName: "Gunn Campus",
+        senderPhoto:"https://gunnwebapp.web.app/favicon.png",
+        message:"Woah I am amazed!",
+        time: new Date(2020,9,5,20,36,2)
+      }
+    ]
   },
   mutations: {
     setUser(state,user){
