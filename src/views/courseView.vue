@@ -1,9 +1,11 @@
 <template>
-  <div class="home">
+  <div>
     <md-app-toolbar class="md-large md-dense md-primary" style="z-index: 10">
       <div class="md-toolbar-row">
         <div class="md-toolbar-section-start">
-
+          <md-button class="md-icon-button d-sm-only" @click="$store.commit('toggleDrawer')">
+            <md-icon>menu</md-icon>
+          </md-button>
 
           <span class="md-title">{{ ($store.state.courses.filter(function(x) {
             return x.sectionId === $route.params.courseid
@@ -23,6 +25,7 @@
         </md-tabs>
       </div>
     </md-app-toolbar>
+
     <md-app-content>
       <router-view/>
     </md-app-content>
@@ -43,3 +46,16 @@ export default {
   }
 }
 </script>
+<style>
+  @media (max-width: 599px) {
+    .d-sm-only {
+      display: unset;
+    }
+  }
+  @media (min-width: 600px) {
+
+    .d-sm-only{
+      display: none;
+    }
+  }
+</style>

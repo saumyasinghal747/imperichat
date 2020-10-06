@@ -2,7 +2,9 @@
     <md-app-toolbar class="md-large md-dense md-primary">
         <div class="md-toolbar-row">
             <div class="md-toolbar-section-start">
-
+                <md-button class="md-icon-button" @click="$store.commit('toggleDrawer')">
+                    <md-icon>menu</md-icon>
+                </md-button>
 
           <span class="md-title">Imperichat</span>
             </div>

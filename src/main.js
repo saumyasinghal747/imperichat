@@ -30,6 +30,7 @@ Vue.use(MdDrawer);
 Vue.use(MdMenu);
 Vue.use(MdBadge);
 Vue.use(MdField);
+
 Vue.use(require('vue-moment'));
 Vue.config.productionTip = false
 let app;
@@ -53,7 +54,9 @@ auth.onAuthStateChanged((user) => {
      const token = (new URLSearchParams(window.location.search)).get('t');
      window.history.replaceState({page: location.pathname}, document.title, window.location.pathname);
      window.history.pushState({page: location.pathname}, document.title, window.location.pathname)
-     auth.signInWithCustomToken(token); //i think we are fine :D
+     auth.signInWithCustomToken(token).catch(function (e) {
+        console.log(e)
+     }); //i think we are fine :D
    }
   }
 

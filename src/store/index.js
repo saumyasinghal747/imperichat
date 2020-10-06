@@ -8,6 +8,7 @@ export default new Vuex.Store({
     user:null, //firebase user object. now can do "v-if user"
     darkMode:false,
 courses:[],
+    showDrawer:true,
     messages:[
       {
         senderId:"uid1",
@@ -48,6 +49,9 @@ courses:[],
     },
     setCourses(state,courses){
       state.courses = courses;
+    },
+    toggleDrawer(state){
+      state.showDrawer = !state.showDrawer
     }
   },
   actions: {

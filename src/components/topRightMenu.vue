@@ -10,9 +10,12 @@
             <md-menu-item @click="signInAsTeacher">As Teacher</md-menu-item>
         </md-menu-content>
     </md-menu>
-    <md-menu v-if="$store.state.user" :md-close-on-select="true" md-size="medium" :md-offset-x="0" :md-offset-y="8">
+    <md-menu v-if="$store.state.user"  :md-close-on-select="true" md-size="medium" :md-offset-x="0" :md-offset-y="8">
         <md-button  md-menu-trigger>
-            {{$store.state.user.displayName}} <md-icon>arrow_drop_down</md-icon>
+            <span class="md-small-hide">{{$store.state.user.displayName}}  </span>
+            <md-avatar class="d-sm-only md-small">
+            <img :src="$store.state.user.photoURL" />
+        </md-avatar> <md-icon>arrow_drop_down</md-icon>
         </md-button>
 
         <md-menu-content>
@@ -65,5 +68,15 @@
 </script>
 
 <style scoped>
+    @media (max-width: 599px) {
+        .d-sm-only {
+            display: inline-flex;
+        }
+    }
+    @media (min-width: 600px) {
 
+        .d-sm-only{
+            display: none;
+        }
+    }
 </style>

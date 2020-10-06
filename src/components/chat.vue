@@ -1,5 +1,7 @@
 <template>
     <md-content v-if="$store.state.user" style="overflow: hidden">
+
+
         <h1 >{{ ($store.state.courses.filter(function(x) {
             return x.sectionId === $route.params.courseid
             })[0] || {name: "Loading..."}).name }}</h1>

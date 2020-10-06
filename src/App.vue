@@ -1,7 +1,7 @@
 <template>
   <div class="page-container">
-    <md-app :md-theme="$store.state.darkMode? 'default-dark':'default-light'"  md-mode="fixed-last">
-      <md-app-drawer v-if="$store.state.courses.length>0" md-permanent="full">
+    <md-app :md-theme="$store.state.darkMode? 'default-dark':'default-light'"  md-mode="fixed-last" :md-scrollbar="false">
+      <md-app-drawer :md-active.sync="$store.state.showDrawer" v-if="$store.state.courses.length>0" md-permanent="full">
         <md-toolbar class="md-transparent" md-elevation="0">
           <h1 >Courses</h1>
         </md-toolbar>
@@ -77,7 +77,6 @@
   import Home from "./views/courseView";
   export default {
     name: 'App',
-    components: {Home},
-
+    components: {Home}
   }
 </script>
