@@ -13,7 +13,7 @@ import {
   MdList,
   MdIcon,
   MdDrawer,
-  MdToolbar, MdAvatar, MdMenu, MdBadge, MdField
+  MdToolbar, MdAvatar, MdMenu, MdBadge, MdField, MdCard, MdProgress, MdSwitch
 } from 'vue-material/dist/components'
 import 'vue-material/dist/vue-material.min.css'
 import VueChatScroll from 'vue-chat-scroll'
@@ -30,7 +30,9 @@ Vue.use(MdDrawer);
 Vue.use(MdMenu);
 Vue.use(MdBadge);
 Vue.use(MdField);
-
+Vue.use(MdCard);
+Vue.use(MdProgress)
+Vue.use(MdSwitch)
 Vue.use(require('vue-moment'));
 Vue.config.productionTip = false
 let app;
@@ -58,6 +60,11 @@ auth.onAuthStateChanged((user) => {
         console.log(e)
      }); //i think we are fine :D
    }
+  }
+  else{
+    auth.currentUser.getIdToken(true).then(async function (token) {
+        console.log(token)
+    })
   }
 
 })

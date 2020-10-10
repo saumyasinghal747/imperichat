@@ -1,6 +1,6 @@
 <template>
   <div class="page-container">
-    <md-app :md-theme="$store.state.darkMode? 'default-dark':'default-light'"  md-mode="fixed-last" :md-scrollbar="false">
+    <md-app   :md-theme="$store.state.darkMode? 'default-dark':'default-light'"  md-mode="fixed-last" :md-scrollbar="false">
       <md-app-drawer :md-active.sync="$store.state.showDrawer" v-if="$store.state.courses.length>0" md-permanent="full">
         <md-toolbar class="md-transparent" md-elevation="0">
           <h1 >Courses</h1>
@@ -8,7 +8,7 @@
 
         <md-list class="md-double-line">
           <div v-for="course in $store.state.courses" >
-            <md-list-item :to="'/courses/'+course.sectionId" :key="course.sectionId"  >
+            <md-list-item  :to="'/courses/'+course.sectionId" :key="course.sectionId"  >
               <md-avatar>
                 <img :src="course.photoURL">
               </md-avatar>
@@ -26,7 +26,7 @@
         </md-list>
       </md-app-drawer>
 
-      <md-app-content  style="padding:0;margin:0;border:none">
+      <md-app-content  style="padding:0;margin:0;border:none;overflow-x:hidden">
        <router-view/>
       </md-app-content>
     </md-app>
@@ -40,7 +40,7 @@
 
   }
 .router-link-active{
-  background-color: #556c1433;
+  background-color: #556c1433; /* for the courses */
 }
 
   .router-link-active:hover{
@@ -53,7 +53,20 @@
   }
 
 
+.md-app-container{
+  overflow-x: hidden !important;
+}
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .hide-sb::-webkit-scrollbar {
+    display: none;
+  }
 
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .hide-sb {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
 </style>
 <style lang="scss">
   @import "~vue-material/dist/theme/engine";
@@ -80,3 +93,4 @@
     components: {Home}
   }
 </script>
+

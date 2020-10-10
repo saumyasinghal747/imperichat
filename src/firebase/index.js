@@ -13,6 +13,7 @@ import * as firebase from "firebase/app";
 import "firebase/analytics";
 import "firebase/auth";
 import "firebase/database";
+import "firebase/firestore";
 const firebaseConfig = {
     apiKey: "AIzaSyDujMJt34ppKaRdF3Ib4cDYnhBQfzSMumA",
     authDomain: "imperichat.firebaseapp.com",
@@ -30,6 +31,7 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 const auth = firebase.auth()
 const database = firebase.database()
+const firestore = firebase.firestore()
 const studentProvider = new firebase.auth.GoogleAuthProvider();
 const teacherProvider = new firebase.auth.GoogleAuthProvider();
 studentProvider.setCustomParameters({
@@ -40,5 +42,5 @@ teacherProvider.setCustomParameters({
 })
 //so we'll also delete faulty users server side if they access or post data with non pausd accounts, but this is good deterrent.
 export  {
-    auth, studentProvider, teacherProvider, database
+    auth, studentProvider, teacherProvider, database,firestore
 }

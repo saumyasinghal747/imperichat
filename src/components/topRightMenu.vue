@@ -19,8 +19,8 @@
         </md-button>
 
         <md-menu-content>
-            <md-menu-item @click="()=>{}">Profile</md-menu-item>
             <md-menu-item @click="()=>{}">Settings</md-menu-item>
+            <md-menu-item @click="()=>{}">About</md-menu-item>
             <md-menu-item @click="signOut">Sign Out</md-menu-item>
         </md-menu-content>
     </md-menu>
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-    import {auth, studentProvider, teacherProvider, database} from "../firebase";
+    import {auth, studentProvider, teacherProvider} from "../firebase";
 
 
     export default {
@@ -43,13 +43,8 @@
         },
         methods:{
             signInAsStudent(){
-                //first we should check with the server whether this user exists or not
-                auth.signInWithRedirect(studentProvider).then(async function () {
-                    //const email = auth.currentUser.email;
-                    //check if the user has multiple providers? if google is their only provider then delete the account
-
-
-                })
+                // the server will handle all
+                auth.signInWithRedirect(studentProvider)
             },
             signInAsTeacher(){
                 auth.signInWithRedirect(teacherProvider)

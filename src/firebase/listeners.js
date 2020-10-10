@@ -1,7 +1,7 @@
 import {auth, database} from "./index";
 import store from "../store"
 let userCoursesRef;
-let dbListener;
+
 auth.onAuthStateChanged(function (user) {
     // someone just signed in/out, or the user object has changed.
     store.commit('setUser',user)
@@ -40,5 +40,8 @@ auth.onAuthStateChanged(function (user) {
         store.commit('setCourses',[])  //reset data
     }
 })
+
+
+
 
 

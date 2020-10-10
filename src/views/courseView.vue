@@ -20,13 +20,13 @@
         <md-tabs class="md-primary">
           <md-tab :to="'/courses/'+$route.params.courseid" exact="exact" id="tab-home" md-label="Home"></md-tab>
           <md-tab :to="'/courses/'+$route.params.courseid+'/chat'"  exact="exact" id="tab-chat" md-label="Chat"></md-tab>
-          <md-tab id="tab-pages" md-label="Assignments"></md-tab>
+          <md-tab :to="'/courses/'+$route.params.courseid+'/assignments'" exact="exact" id="tab-pages" md-label="Assignments"></md-tab>
           <md-tab id="tab-posts" md-label="Notes"></md-tab>
         </md-tabs>
       </div>
     </md-app-toolbar>
 
-    <md-app-content>
+    <md-app-content style="padding:0;margin:0;border:none;overflow-x:hidden">
       <router-view/>
     </md-app-content>
   </div>
