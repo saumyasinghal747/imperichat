@@ -17,6 +17,10 @@ const asgConverter = {
   // no need for toFirestore() since we never call set()
 }
 
+const compareMessages = (a,b) => {
+  return a.time - b.time
+}
+
 let sectionMsgRef;
 let sectionAsgRef;
 
@@ -29,34 +33,6 @@ courses:[],
     activeSection:null,
     assignments:[],
     messages:[
-     /* {
-        senderId:"uid1",
-        senderName: "Homework Central",
-        senderPhoto:"https://homeworkcentral.web.app/favicon.png",
-        message:"Wow! That chat begins!",
-        time: new Date(2020,9,5,20,33,15)
-      },
-      {
-        senderId:"uid2",
-        senderName:"YMath",
-        senderPhoto:"https://ymath.io/favicon.png",
-        message:"Yeah!!",
-        time: new Date(2020,9,5,20,35,11)
-      },
-      {
-        senderId:"uid1",
-        senderName: "Homework Central",
-        senderPhoto:"https://homeworkcentral.web.app/favicon.png",
-        message:"Isn't this amazing?",
-        time: new Date(2020,9,5,20,36,2)
-      },
-      {
-        senderId:"uid3",
-        senderName: "Gunn Campus",
-        senderPhoto:"https://gunnwebapp.web.app/favicon.png",
-        message:"Woah I am amazed!",
-        time: new Date(2020,9,5,20,36,2)
-      }*/
     ]
   },
   mutations: {
@@ -119,14 +95,15 @@ courses:[],
             time: values.time.toDate(),
             bot: sender.bot
           }); // convert it into a format that the thing can understand
+           state.messages.sort(compareMessages);
         });
 
-      })
+      });
     }
   },
   actions: {
     toggleTheme(context){
-      context.commit('setTheme',!context.state.darkMode)
+      context.commit('setTheme',!context.state.darkMode);
     }
   },
   modules: {

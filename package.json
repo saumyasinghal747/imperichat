@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve --port 80 --https --host saumya.local",
     "build": "vue-cli-service build",
     "deploy": "npm run build && firebase deploy",
-    "publish": "git add . && git commit -m Make\\ it\\ better && git push"
+    "publish": "git add . && git commit -m \"Weekly Commit\" && git push"
   },
   "dependencies": {
     "core-js": "^3.6.5",

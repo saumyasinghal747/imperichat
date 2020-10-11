@@ -46,10 +46,12 @@
         }},
         methods:{
             sendMessage(){
-                if (this.cmessage.length===0){
+                if (this.cmessage.trim().length===0){
                     return false;
                 }
                 const theGreaterGood = this;
+                const message = this.cmessage;
+                this.cmessage = "";
                 // send a token and a message to the backend server. It shall handle the rest. Use await so you
                 // only empty the thing after. Disable the input thing while it sends.
                 /*this.$store.state.messages.push({
@@ -70,13 +72,13 @@
                         },
 
                         body: JSON.stringify({
-                            message: theGreaterGood.cmessage,
+                            message: message.trim(),
                             sectionId:theGreaterGood.$route.params.courseid,
                             token
                         })
                     }).then(function (response) {
                         theGreaterGood.sending = false
-                        theGreaterGood.cmessage =  "";
+                        //theGreaterGood.cmessage =  "";
                     if (response.statusCode == 201){
                     
 
