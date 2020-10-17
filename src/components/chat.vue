@@ -11,14 +11,14 @@
             <div  style="margin-right: auto;margin-left: auto;padding-top: 2em" v-if="$store.state.messages.length===0" >
                 <md-progress-spinner class="md-accent " md-mode="indeterminate"/>
             </div>
-            <md-list-item @click="()=>{}" v-for="(msg, index) in $store.state.messages" v-bind:key="index" class="md-double-line message ">
-                <md-avatar>
+            <md-list-item  v-for="(msg, index) in $store.state.messages" v-bind:key="index" class="md-double-line message ">
+                <md-avatar v-if="(index>0 && $store.state.messages[index-1].senderId!==msg.senderId)|| index===0">
                     <img  :src="msg.senderPhoto||'https://placekitten.com/1000/1000'" />
                 </md-avatar>
-                <div class="md-list-item-text">
-                   <p><span >{{msg.senderName}}</span> <span v-if="msg.bot" class="bot-badge"> <span class="verified" v-if="msg.bot.verified">✔</span>  BOT</span>  <span style="margin-left: 1em">{{msg.time | moment("from")}}</span></p>
+                <div class="md-list-item-text" :style="((index>0 && $store.state.messages[index-1].senderId!==msg.senderId)||(index===0))? '':'min-height:0px'">
+                   <p style="margin-bottom: 0.5em" v-if="(index>0 && $store.state.messages[index-1].senderId!==msg.senderId)||(index===0)"><span >{{msg.senderName}}</span> <span v-if="msg.bot" class="bot-badge"> <span class="verified" v-if="msg.bot.verified">✔</span>  BOT</span>  <span style="margin-left: 1em">{{msg.time | moment("from")}}</span></p>
                     
-                    <p style="margin-top: 0.5em" >{{msg.message}}</p>
+                    <p :style="((index>0 && $store.state.messages[index-1].senderId!==msg.senderId)||(index===0))? '':'margin-left:50px; color:var(--md-theme-default-light-text-accent-on-background, rgba(0, 0, 0, 0.54));font-size:14px;min-height:0px' " >{{msg.message}}</p>
                 </div>
             </md-list-item>
 
