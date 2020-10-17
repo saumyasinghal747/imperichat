@@ -33,7 +33,8 @@ courses:[],
     activeSection:null,
     assignments:[],
     messages:[
-    ]
+    ],
+    userMap:{}
   },
   mutations: {
     setUser(state,user){
@@ -86,7 +87,16 @@ courses:[],
           }
 
           const values = data.doc.data();
-          const sender = (await values.user.get()).data();
+          const uid = values.user.id
+          let sender;
+          if (state.userMap[uid]){
+            sender = state.userMap[uid]
+          }
+          else {
+            sender = (await values.user.get()).data();
+            state.userMap[uid] = sender;
+          }
+
           state.messages.push({
             message:values.message,
             senderId: sender.uid,

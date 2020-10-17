@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --port 80 --https --host saumya.local",
+    "serve": "vue-cli-service serve --port 443 --https --copy  --host saumya.local",
     "build": "vue-cli-service build",
     "deploy": "npm run build && firebase deploy",
     "publish": "git add . && git commit -m \"Weekly Commit\" && git push"

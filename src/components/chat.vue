@@ -1,7 +1,7 @@
 <template>
     <md-content class="md-accent" v-if="$store.state.user" style="overflow: hidden">
-
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 
 
         <md-list  style="overflow: scroll;position: fixed;bottom: 75px;top:0;width:100%"  class="md-double-line messages hide-sb" v-chat-scroll="{smooth:!true,notSmoothOnInit: true}">
@@ -16,7 +16,7 @@
                     <img  :src="msg.senderPhoto||'https://placekitten.com/1000/1000'" />
                 </md-avatar>
                 <div class="md-list-item-text">
-                   <p><span >{{msg.senderName}}</span> <span v-if="msg.bot" class="bot-badge">BOT</span>  <span style="margin-left: 1em">{{msg.time | moment("from")}}</span></p>
+                   <p><span >{{msg.senderName}}</span> <span v-if="msg.bot" class="bot-badge"> <span class="verified" v-if="msg.bot.verified">✔</span>  BOT</span>  <span style="margin-left: 1em">{{msg.time | moment("from")}}</span></p>
                     
                     <p style="margin-top: 0.5em" >{{msg.message}}</p>
                 </div>
@@ -34,7 +34,7 @@
         </md-field>
     </md-content>
 </template>
-
+<script src="https://use.fontawesome.com/c4b17b7042.js"/>
 <script>
     import {auth} from "../firebase";
 
@@ -116,5 +116,9 @@
         font-size: 0.7rem !important;
         font-weight: bold;
         color:white !important;
+    }
+    
+    .bot-badge .verified{
+        font-family: "American Typewriter",sans-serif;
     }
 </style>
