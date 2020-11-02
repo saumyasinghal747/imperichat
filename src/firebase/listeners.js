@@ -13,7 +13,7 @@ auth.onAuthStateChanged(function (user) {
             //delete the user
             auth.currentUser.delete().then(function () {
                 // and forward them to Schoology mwahaha
-                document.location = "http://mangoice.herokuapp.com/imperichat/please-sgy"
+                document.location = "http://mangoice.herokuapp.com/imperichat/please-sgy" 
             })
 
         }

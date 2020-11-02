@@ -4,7 +4,7 @@
     
 
 
-        <md-list  style="overflow: scroll;position: fixed;bottom: 75px;top:0;width:100%"  class="md-double-line messages hide-sb" v-chat-scroll="{smooth:!true,notSmoothOnInit: true}">
+        <md-list  style="overflow: scroll;position: fixed;bottom: 75px;top:0;width:100%"  class="md-double-line messages hide-sb" v-chat-scroll="{}">
             <h1  class="md-display-3">{{ ($store.state.courses.filter(function(x) {
                 return x.sectionId === $route.params.courseid
                 })[0] || {name: "Loading..."}).name }}</h1>
@@ -18,7 +18,7 @@
                 <div class="md-list-item-text" :style="((index>0 && $store.state.messages[index-1].senderId!==msg.senderId)||(index===0))? '':'min-height:0px'">
                    <p style="margin-bottom: 0.5em" v-if="(index>0 && $store.state.messages[index-1].senderId!==msg.senderId)||(index===0)"><span >{{msg.senderName}}</span> <span v-if="msg.bot" class="bot-badge"> <span class="verified" v-if="msg.bot.verified">✔</span>  BOT</span>  <span style="margin-left: 1em">{{msg.time | moment("from")}}</span></p>
                     
-                    <p :style="((index>0 && $store.state.messages[index-1].senderId!==msg.senderId)||(index===0))? '':'margin-left:50px; color:var(--md-theme-default-light-text-accent-on-background, rgba(0, 0, 0, 0.54));font-size:14px;min-height:0px' " >{{msg.message}}</p>
+                    <p class="md-list-item-text" :style="((index>0 && $store.state.messages[index-1].senderId!==msg.senderId)||(index===0))? '':'margin-left:50px;font-size:14px;min-height:0px' " >{{msg.message}}</p>
                 </div>
             </md-list-item>
 
