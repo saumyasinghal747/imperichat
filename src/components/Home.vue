@@ -1,4 +1,5 @@
 <template>
+    <div>
     <md-app-toolbar class="md-large md-dense md-primary">
         <div class="md-toolbar-row">
             <div class="md-toolbar-section-start">
@@ -21,6 +22,15 @@
             </md-tabs>
         </div>
     </md-app-toolbar>
+        <div style="padding: 20px;margin-top:20px">
+            <h1 v-if="$store.state.user">
+                Hello! Welcome to Imperichat! Please select a course to start talking to friends!
+            </h1>
+            <h1 v-else>
+                Hello! Welcome to Imperichat! Please sign in to start talking to friends!
+            </h1>
+        </div>
+    </div>
 </template>
 
 <script>
